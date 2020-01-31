@@ -1,2 +1,2 @@
 # MasterLaravel
-A Laravel PHP course for Beginners
+A Laravel 5.8 PHP course for Beginners
