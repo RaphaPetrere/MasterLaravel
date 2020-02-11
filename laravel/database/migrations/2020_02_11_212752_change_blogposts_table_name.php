@@ -4,8 +4,9 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePasswordResetsTable extends Migration
+class ChangeBlogpostsTableName extends Migration
 {
+    //here we used the  php artisan make:migration change_blogposts_table_name --table=blogposts for it to know which table r we using
     /**
      * Run the migrations.
      *
@@ -13,11 +14,7 @@ class CreatePasswordResetsTable extends Migration
      */
     public function up()
     {
-        Schema::create('password_resets', function (Blueprint $table) {
-            $table->string('email', 191)->index();
-            $table->string('token');
-            $table->timestamp('created_at')->nullable();
-        });
+        Schema::rename('blogposts', 'blog_posts'); //it uses a $from $to parameter
     }
 
     /**
@@ -27,6 +24,6 @@ class CreatePasswordResetsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('password_resets');
+        Schema::rename('blog_posts', 'blogposts'); //it uses a $from $to parameter
     }
 }

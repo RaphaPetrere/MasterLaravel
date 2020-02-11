@@ -16,7 +16,7 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('email')->unique();
+            $table->string('email', 191)->unique(); //here we r setting the maximum length of 191 so 191 * 4 = 764 bytes, what is less than 767 (max key length)
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
