@@ -16,8 +16,8 @@ Route::get('/', 'HomeController@home')->name('home');
 
 Route::get('/contact', 'HomeController@contact')->name('contact');
 
-Route::get('/blog-post/{id}/{welcome?}', 'HomeController@blogPost')->name('blog-post');
-
+// Route::get('/blog-post/{id}/{welcome?}', 'HomeController@blogPost')->name('blog-post');
+Route::resource('/posts', 'PostController')->only(['index', 'show']); //aqui estamos escolhendo qual rotas queremos de todo o PostController
 
 
 
